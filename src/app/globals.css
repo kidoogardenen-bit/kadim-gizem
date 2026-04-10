@@ -1,0 +1,272 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap");
+
+@config "../../tailwind.config.ts";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Cinzel", ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono);
+  --font-heading: "Cinzel", ui-serif, Georgia, serif;
+
+  --color-parchment: var(--parchment);
+  --color-parchment-dark: var(--parchment-dark);
+  --color-ink: var(--ink);
+  --color-ink-light: var(--ink-light);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-crimson: var(--crimson);
+  --color-crimson-light: var(--crimson-light);
+  --color-shadow: var(--shadow);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-slide-up: slide-up 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  --animate-glow: glow 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   LIGHT MODE — Parchment & Ink
+   ============================================================ */
+:root {
+  /* Premium palette */
+  --parchment: #f5efe0;
+  --parchment-dark: #ebe2cc;
+  --ink: #1a1410;
+  --ink-light: #3a2f24;
+  --gold: #b8893a;
+  --gold-light: #d4a857;
+  --gold-dark: #8b6420;
+  --crimson: #8b1e2d;
+  --crimson-light: #b33343;
+  --shadow: rgba(26, 20, 16, 0.12);
+
+  /* shadcn mapped to theme */
+  --background: #f5efe0;
+  --foreground: #1a1410;
+  --card: #fbf7ec;
+  --card-foreground: #1a1410;
+  --popover: #fbf7ec;
+  --popover-foreground: #1a1410;
+  --primary: #1a1410;
+  --primary-foreground: #f5efe0;
+  --secondary: #ebe2cc;
+  --secondary-foreground: #1a1410;
+  --muted: #ebe2cc;
+  --muted-foreground: #6b5b47;
+  --accent: #b8893a;
+  --accent-foreground: #1a1410;
+  --destructive: #8b1e2d;
+  --border: rgba(184, 137, 58, 0.25);
+  --input: rgba(184, 137, 58, 0.25);
+  --ring: #b8893a;
+  --chart-1: #b8893a;
+  --chart-2: #8b1e2d;
+  --chart-3: #3a2f24;
+  --chart-4: #d4a857;
+  --chart-5: #6b5b47;
+  --radius: 0.5rem;
+  --sidebar: #fbf7ec;
+  --sidebar-foreground: #1a1410;
+  --sidebar-primary: #1a1410;
+  --sidebar-primary-foreground: #f5efe0;
+  --sidebar-accent: #ebe2cc;
+  --sidebar-accent-foreground: #1a1410;
+  --sidebar-border: rgba(184, 137, 58, 0.25);
+  --sidebar-ring: #b8893a;
+}
+
+/* ============================================================
+   DARK MODE — Midnight Codex (default)
+   ============================================================ */
+.dark {
+  --parchment: #1a1410;
+  --parchment-dark: #0f0b08;
+  --ink: #f5efe0;
+  --ink-light: #c9bfa8;
+  --gold: #d4a857;
+  --gold-light: #e8c478;
+  --gold-dark: #b8893a;
+  --crimson: #b33343;
+  --crimson-light: #d4455a;
+  --shadow: rgba(0, 0, 0, 0.5);
+
+  --background: #0f0b08;
+  --foreground: #f5efe0;
+  --card: #1a1410;
+  --card-foreground: #f5efe0;
+  --popover: #1a1410;
+  --popover-foreground: #f5efe0;
+  --primary: #d4a857;
+  --primary-foreground: #0f0b08;
+  --secondary: #26201a;
+  --secondary-foreground: #f5efe0;
+  --muted: #26201a;
+  --muted-foreground: #a89680;
+  --accent: #d4a857;
+  --accent-foreground: #0f0b08;
+  --destructive: #d4455a;
+  --border: rgba(212, 168, 87, 0.18);
+  --input: rgba(212, 168, 87, 0.18);
+  --ring: #d4a857;
+  --chart-1: #d4a857;
+  --chart-2: #d4455a;
+  --chart-3: #c9bfa8;
+  --chart-4: #e8c478;
+  --chart-5: #a89680;
+  --sidebar: #0f0b08;
+  --sidebar-foreground: #f5efe0;
+  --sidebar-primary: #d4a857;
+  --sidebar-primary-foreground: #0f0b08;
+  --sidebar-accent: #26201a;
+  --sidebar-accent-foreground: #f5efe0;
+  --sidebar-border: rgba(212, 168, 87, 0.18);
+  --sidebar-ring: #d4a857;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern", "liga", "calt", "ss01";
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "kern", "liga", "calt";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--ink);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  .bg-parchment-texture {
+    background-image:
+      radial-gradient(at 20% 10%, rgba(184, 137, 58, 0.06) 0px, transparent 50%),
+      radial-gradient(at 80% 90%, rgba(139, 30, 45, 0.05) 0px, transparent 50%);
+  }
+  .bg-starfield {
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(212, 168, 87, 0.5), transparent),
+      radial-gradient(1px 1px at 60% 70%, rgba(212, 168, 87, 0.4), transparent),
+      radial-gradient(1px 1px at 80% 15%, rgba(212, 168, 87, 0.6), transparent),
+      radial-gradient(1px 1px at 40% 85%, rgba(212, 168, 87, 0.3), transparent),
+      radial-gradient(1px 1px at 10% 60%, rgba(212, 168, 87, 0.5), transparent),
+      radial-gradient(1px 1px at 90% 50%, rgba(212, 168, 87, 0.4), transparent);
+    background-size: 400px 400px;
+  }
+  .gold-divider {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--gold) 20%,
+      var(--gold) 80%,
+      transparent 100%
+    );
+  }
+  .text-shadow-gold {
+    text-shadow: 0 0 20px rgba(212, 168, 87, 0.4);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 168, 87, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 168, 87, 0.5);
+  }
+}
